@@ -123,11 +123,19 @@ export default function LoginScreen() {
       {error && <Text style={{ color: 'red', textAlign: 'center' }}>{error}</Text>}
 
       {/* Show Next button only when OTP is verified */}
-      {tempToken && (
-        <TouchableOpacity style={styles.nextButton} onPress={() => router.push('/register')}>
-          <Text style={styles.nextText}>Next</Text>
-        </TouchableOpacity>
-      )}
+      <TouchableOpacity
+        style={[styles.nextButton, !tempToken && { opacity: 0.5 }]}
+        onPress={() => {
+          if (!tempToken) {
+            Alert.alert('OTP not verified', 'Please enter a valid OTP before proceeding.');
+          } else {
+            router.push('/register');
+          }
+        }}
+       >
+        <Text style={styles.nextText}>NEXT</Text>
+      </TouchableOpacity>
+
 
       <View style={styles.spacingBelowOtp} />
       <View style={styles.spacingBelowGoogle} />
