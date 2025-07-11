@@ -24,7 +24,6 @@ export default function LoginScreen() {
   const [mobile, setMobile] = useState('');
   const inputRefs = useRef<TextInput[]>([]);
 
-  // Auto-verify OTP when 6 digits filled
   useEffect(() => {
     if (otp.every((digit) => digit !== '')) {
       const phoneNumber = `+91${mobile}`;
@@ -32,12 +31,7 @@ export default function LoginScreen() {
     }
   }, [otp]);
 
-  // Navigate if OTP verified
-  useEffect(() => {
-    if (tempToken) {
-      router.push('/register');
-    }
-  }, [tempToken]);
+  // Removed auto-navigation logic
 
   const handleOTPChange = (text: string, index: number) => {
     const newOtp = [...otp];
@@ -127,6 +121,13 @@ export default function LoginScreen() {
       )}
 
       {error && <Text style={{ color: 'red', textAlign: 'center' }}>{error}</Text>}
+
+      {/* Show Next button only when OTP is verified */}
+      {tempToken && (
+        <TouchableOpacity style={styles.nextButton} onPress={() => router.push('/register')}>
+          <Text style={styles.nextText}>Next</Text>
+        </TouchableOpacity>
+      )}
 
       <View style={styles.spacingBelowOtp} />
       <View style={styles.spacingBelowGoogle} />
