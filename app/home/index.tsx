@@ -19,7 +19,6 @@ export default function HomeScreen() {
 }, []);
   return (
     <View style={styles.container}>
-      {/* Balance Header with Gradient */}
       <LinearGradient
         colors={['#4F80FF', '#3B66F8']}
         style={styles.header}
@@ -38,7 +37,6 @@ export default function HomeScreen() {
         </View>
       </LinearGradient>
 
-      {/* Net Income & Expenditure */}
       <View style={styles.financeCard}>
         <View style={styles.incomeBox}>
           <View style={[styles.iconWrapper, { backgroundColor: '#DDF5F3' }]}>
@@ -61,7 +59,6 @@ export default function HomeScreen() {
         </View>
       </View>
 
-      {/* Monthly Screen Time */}
       <View style={styles.chartCard}>
         <View style={styles.chartTextContainer}>
           <Text style={styles.chartTitle}>Monthly Screen Time</Text>
@@ -78,7 +75,7 @@ export default function HomeScreen() {
         />
       </View>
 
-      {/* Support Shortcuts */}
+      
       <Text style={styles.sectionTitle}>Feedback or Support Shortcuts</Text>
       <View style={styles.supportRow}>
         <SupportBox text="Report a problem" color="#f66" icon="exclamationcircle" />

@@ -3,10 +3,11 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { Provider, useDispatch } from 'react-redux';
-import { store } from './redux/store';
+//import { PersistGate } from 'redux-persist/integration/react'; // ✅ NEW
+import { store } from './redux/store'; // ✅ UPDATED
 import { initializeAuth } from './redux/initAuth'; // ✅
-import { UserProvider } from './context/UserContext'; // optional
-import type { AppDispatch } from './redux/store'; 
+
+import type { AppDispatch } from './redux/store';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -21,7 +22,7 @@ function RootLayoutInner() {
   useEffect(() => {
     const prepare = async () => {
       if (fontsLoaded) {
-        await dispatch(initializeAuth()); // ✅ hydrate auth state
+        await dispatch(initializeAuth());
         await SplashScreen.hideAsync();
       }
     };
@@ -36,9 +37,7 @@ function RootLayoutInner() {
 export default function Layout() {
   return (
     <Provider store={store}>
-      <UserProvider>
-        <RootLayoutInner />
-      </UserProvider>
+          <RootLayoutInner />
     </Provider>
   );
 }

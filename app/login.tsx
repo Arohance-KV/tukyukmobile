@@ -58,10 +58,10 @@ export default function LoginScreen() {
       </TouchableOpacity>
 
       <Text style={styles.welcome}>
-        <Text style={styles.highlight}>WELCOME! </Text>
+        <Text style={styles.highlight}>WELCOME!</Text>
         <Text>Glad to see you again</Text>
       </Text>
-
+      
       <View style={styles.spacingBelowWelcome} />
 
       <TextInput
@@ -131,6 +131,12 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
+  subtext: {
+  fontSize: 20,
+  fontFamily: 'Nunito',
+  color: '#000',
+},
+
   container: {
     padding: 20,
     backgroundColor: '#f8f6f3',
@@ -222,6 +228,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 10,
     fontFamily: 'Nunito',
+    fontSize: 18,
   },
   timerText: {
     textAlign: 'center',

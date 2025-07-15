@@ -7,7 +7,6 @@ export default function AboutUsScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: '#f9f9f9' }}>
-      {/* Back Button */}
       <TouchableOpacity
         onPress={() => router.push('/home/settings')}
         style={{
@@ -20,8 +19,6 @@ export default function AboutUsScreen() {
       >
         <Ionicons name="arrow-back" size={28} color="#000" />
       </TouchableOpacity>
-
-      {/* Main page heading */}
       <Text
         style={{
           fontSize: 20,
@@ -36,9 +33,9 @@ export default function AboutUsScreen() {
         About Us
       </Text>
 
-      {/* Full screen-width image with rounded top corners */}
+      
       <Image
-        source={require('../tuktuk.png')} // Update path as needed
+        source={require('../tuktuk.png')} 
         style={{
           width: '100%',
           height: 300,
@@ -48,7 +45,6 @@ export default function AboutUsScreen() {
         resizeMode="cover"
       />
 
-      {/* Content with padding */}
       <View style={{ paddingHorizontal: 30, paddingTop: 30 }}>
         <Text
           style={{
@@ -78,10 +74,9 @@ export default function AboutUsScreen() {
           and cost-effective solution for businesses to reach a broader audience.
         </Text>
 
-        {/* Black button */}
+        
         <TouchableOpacity
           onPress={() => {
-            /* Handle navigation or mail */
           }}
           style={{
             backgroundColor: '#000',

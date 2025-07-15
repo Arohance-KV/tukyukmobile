@@ -107,19 +107,18 @@ export default function QRScanner({ onClose }: { onClose: () => void }) {
         barcodeScannerSettings={{ barcodeTypes: ['qr'] }}
       />
 
-      {/* Blurred Overlays */}
+     
       <BlurView intensity={0} style={[styles.blur, { top: 0, bottom: height / 2 - FRAME_SIZE / 2 }]} />
       <BlurView intensity={0} style={[styles.blur, { top: height / 2 + FRAME_SIZE / 2, bottom: 0 }]} />
       <BlurView intensity={0} style={[styles.blur, { top: height / 2 - FRAME_SIZE / 2, height: FRAME_SIZE, left: 0, right: width / 2 - FRAME_SIZE / 2 }]} />
       <BlurView intensity={0} style={[styles.blur, { top: height / 2 - FRAME_SIZE / 2, height: FRAME_SIZE, left: width / 2 + FRAME_SIZE / 2, right: 0 }]} />
 
-      {/* Frame Corners */}
+      
       <View style={[styles.corner, styles.topLeft]} />
       <View style={[styles.corner, styles.topRight]} />
       <View style={[styles.corner, styles.bottomLeft]} />
       <View style={[styles.corner, styles.bottomRight]} />
 
-      {/* Footer */}
       <BlurView intensity={50} style={styles.bottomOverlay} tint="dark">
         <Text style={styles.label}>Scan to pair with Device</Text>
         <Text style={styles.subLabel}>TUKTUK ADS</Text>

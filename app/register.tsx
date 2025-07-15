@@ -46,9 +46,9 @@ export default function RegisterScreen() {
         </View>
       </TouchableOpacity>
 
-      <Text style={styles.header}>
-        <Text style={styles.highlight}>WELCOME! </Text>
-      </Text>
+      <View style={{ marginTop: 60, marginBottom: 15 }}>
+       <Text style={styles.highlight}>WELCOME!</Text>
+      </View>
 
       <View style={styles.spacingBelowHeader} />
 
@@ -72,7 +72,7 @@ export default function RegisterScreen() {
         style={styles.inputFull}
         value={vehicleNumber}
         onChangeText={setVehicleNumber}
-      /> {/* ✅ updated placeholder and logic */}
+      />
 
       <View style={styles.spacingBelowForm} />
       <TouchableOpacity style={styles.nextButton} onPress={handleSubmit}>
@@ -88,6 +88,12 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     backgroundColor: '#f8f6f3',
     flexGrow: 1,
+  },
+  subtext: {
+    fontSize: 18,
+    fontFamily: 'Nunito',
+    color: '#000',
+    marginTop: 5,
   },
   backButton: {
     position: 'absolute',

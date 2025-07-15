@@ -63,7 +63,6 @@ export default function EditProfileScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
           <AntDesign name="arrowleft" size={24} color="white" />
@@ -72,13 +71,11 @@ export default function EditProfileScreen() {
         <AntDesign name="sharealt" size={20} color="white" />
       </View>
 
-      {/* Profile Picture */}
       <View style={styles.profileSection}>
         <Image source={require('../profile.jpg')} style={styles.profileImage} />
         <Text style={styles.changePictureText}>Change Picture</Text>
       </View>
 
-      {/* Form */}
       <View style={styles.form}>
         <Text style={styles.label}>Username</Text>
         <TextInput
@@ -103,7 +100,6 @@ export default function EditProfileScreen() {
         />
       </View>
 
-      {/* Update Button */}
       <TouchableOpacity style={styles.updateButton} onPress={handleUpdate} disabled={loading}>
         <Text style={styles.updateButtonText}>{loading ? 'Updating...' : 'Update'}</Text>
       </TouchableOpacity>

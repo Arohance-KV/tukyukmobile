@@ -54,13 +54,13 @@ export default function Index() {
         <TouchableOpacity
           style={styles.loginButton}
           onPress={() => router.push('/login')}>
-          <Text style={styles.loginText}>LOGIN</Text>
+          <View><Text style={styles.loginText}>LOGIN</Text></View>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.registerButton}
           onPress={() => router.push('/newRegister')}>
-          <Text style={styles.registerText}>REGISTER</Text>
+          <View><Text style={styles.registerText}>REGISTER</Text></View>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

@@ -23,7 +23,13 @@ export default function LoginScreen() {
   const [otpSent, setOtpSent] = useState(false);
   const [mobile, setMobile] = useState('');
   const inputRefs = useRef<TextInput[]>([]);
-
+  useEffect(() => {
+    if (tempToken) {
+      console.log('✅ OTP Verified. Navigating to /register...');
+      router.push('/register');
+    } 
+  }, [tempToken]);
+  
   useEffect(() => {
     if (otp.every((digit) => digit !== '')) {
       const phoneNumber = `+91${mobile}`;
@@ -70,7 +76,7 @@ export default function LoginScreen() {
       </TouchableOpacity>
 
       <Text style={styles.welcome}>
-        <Text style={styles.highlight}>WELCOME! </Text>
+        <Text style={styles.highlight}>WELCOME!</Text>
         <Text>Glad to see you again</Text>
       </Text>
 
@@ -122,21 +128,6 @@ export default function LoginScreen() {
 
       {error && <Text style={{ color: 'red', textAlign: 'center' }}>{error}</Text>}
 
-      {/* Show Next button only when OTP is verified */}
-      <TouchableOpacity
-        style={[styles.nextButton, !tempToken && { opacity: 0.5 }]}
-        onPress={() => {
-          if (!tempToken) {
-            Alert.alert('OTP not verified', 'Please enter a valid OTP before proceeding.');
-          } else {
-            router.push('/register');
-          }
-        }}
-       >
-        <Text style={styles.nextText}>NEXT</Text>
-      </TouchableOpacity>
-
-
       <View style={styles.spacingBelowOtp} />
       <View style={styles.spacingBelowGoogle} />
     </ScrollView>
@@ -144,6 +135,11 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
+subtext: {
+  fontSize: 20,
+  fontFamily: 'Nunito',
+  color: '#000',
+},
   container: {
     padding: 20,
     backgroundColor: '#f8f6f3',
@@ -234,6 +230,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 10,
     fontFamily: 'Nunito',
+    fontSize: 18,
   },
   timerText: {
     textAlign: 'center',

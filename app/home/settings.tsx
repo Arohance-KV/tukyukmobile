@@ -21,14 +21,16 @@ export default function SettingsScreen() {
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <AntDesign name="arrowleft" size={24} color="white" />
         </TouchableOpacity>
+        <View style={styles.pairedBadge}>
+          <View style={styles.greenDot} />
+          <Text style={styles.pairedText}>Paired</Text>
+        </View>
         <Text style={styles.name}>{fullName}</Text>
         <Text style={styles.phone}>{phone}</Text>
       </View>
 
       <View style={styles.profileContainer}>
         <Image source={require('../profile.jpg')} style={styles.profileImage} />
-
-        {/* Dynamic vehicle number plate */}
         <View style={styles.numberPlate}>
           <Text style={styles.plateCountry}>IND</Text>
           <Text style={styles.plateText}>{vehicleNumber}</Text>
@@ -112,6 +114,33 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontFamily: 'Nunito',
   },
+  pairedBadge: {
+    position: 'absolute',
+    right: 20,
+    top: 60,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.15)',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 8,
+  },
+
+greenDot: {
+  width: 8,
+  height: 8,
+  borderRadius: 4,
+  backgroundColor: '#4CAF50',
+  marginRight: 6,
+},
+
+pairedText: {
+  color: '#fff',
+  fontSize: 16,
+  fontWeight: '600',
+  fontFamily: 'Nunito',
+},
+
   profileContainer: {
     flexDirection: 'row',
     justifyContent: 'center',

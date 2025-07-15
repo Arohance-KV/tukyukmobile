@@ -37,7 +37,6 @@ export default function WithdrawScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topSection}>
-        {/* Floating Wallet Icon */}
         <View style={styles.walletIconContainer}>
           <Entypo name="wallet" size={28} color="#4B6EF6" />
         </View>

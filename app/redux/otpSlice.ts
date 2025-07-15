@@ -41,7 +41,10 @@ export const verifyOtp = createAsyncThunk(
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'OTP verification failed');
 
-      return data.data.tempToken;
+      const tempToken = data.data.tempToken;
+      if (!tempToken) throw new Error('No tempToken returned from server');
+
+      return tempToken;
     } catch (err: any) {
       return rejectWithValue(err.message);
     }
@@ -64,13 +67,12 @@ export const completeProfile = createAsyncThunk(
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-temp-token': tempToken, // ✅ fixed header
+          'x-temp-token': tempToken,
         },
         body: JSON.stringify(payload),
       });
 
       const data = await res.json();
-
       if (!res.ok) throw new Error(data.message || 'Profile completion failed');
 
       const { accessToken, refreshToken } = data.data;
@@ -125,7 +127,7 @@ const otpSlice = createSlice({
       })
       .addCase(verifyOtp.fulfilled, (state, action) => {
         state.loading = false;
-        state.tempToken = action.payload;
+        state.tempToken = action.payload; // from AsyncThunk return
       })
       .addCase(verifyOtp.rejected, (state, action) => {
         state.loading = false;
