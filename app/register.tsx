@@ -12,6 +12,7 @@ import { useRouter } from 'expo-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { completeProfile } from './redux/otpSlice'; // Adjust path if needed
 import type { RootState, AppDispatch } from './redux/store';
+import { initializeAuth } from './redux/initAuth';
 
 export default function RegisterScreen() {
   const router = useRouter();
@@ -32,6 +33,7 @@ export default function RegisterScreen() {
 
     try {
       await dispatch(completeProfile({ firstName, lastName, vehicleNumber })).unwrap(); // ✅ updated key
+      await dispatch(initializeAuth());
       router.push('/home');
     } catch (err: any) {
       Alert.alert('Profile Error', err || 'Something went wrong');

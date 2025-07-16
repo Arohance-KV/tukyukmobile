@@ -37,7 +37,7 @@ function RootLayoutInner() {
 export default function Layout() {
   return (
     <Provider store={store}>
-          <RootLayoutInner />
+      <RootLayoutInner />
     </Provider>
   );
 }
